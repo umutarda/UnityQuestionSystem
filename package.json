@@ -1,0 +1,10 @@
+{
+  "name": "com.yayyapim.mcq",
+  "displayName": "Multi Choice Question",
+  "version": "1.0.0",
+  "description": "Multi Choice Question System",
+  "keywords": [
+    "question"
+  ],
+  "category": "QuestionSystem"
+}
