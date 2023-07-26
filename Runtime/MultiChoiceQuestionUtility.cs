@@ -207,7 +207,7 @@ namespace MultiChoiceQuestion
         public static string GetAssetPathFromName (string relativePathToStreamingAssets, string assetName) 
         {
             #if UNITY_EDITOR
-                return "Assets/Editor/StreamingAssets" +relativePathToStreamingAssets+assetName;
+                return "Assets/MultiChoiceQuestion Assets/Editor/StreamingAssets/" +relativePathToStreamingAssets+assetName;
             #else
                 return Application.streamingAssetsPath+relativePathToStreamingAssets+assetName;
             #endif

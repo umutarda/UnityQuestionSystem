@@ -10,7 +10,7 @@ namespace MultiChoiceQuestion
         public string PATH_ABSOLUTE =>
             
             #if UNITY_EDITOR
-                "Assets/Editor/StreamingAssets/" + _FOLDER_NAME + "/";
+                "Assets/MultiChoiceQuestion Assets/Editor/StreamingAssets/" + _FOLDER_NAME + "/";
             #else
                 Application.streamingAssetsPath + "/" + _FOLDER_NAME + "/";
             #endif

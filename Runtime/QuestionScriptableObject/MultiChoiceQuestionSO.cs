@@ -6,6 +6,7 @@ namespace MultiChoiceQuestion
     public class MultiChoiceQuestionSO : ScriptableObject
     {
         [Header("Path Definitions")]
+
         public AssetFolderPath IMAGES_PATH;
         public AssetFolderPath AUDIO_PATH;
         public AssetFolderPath JSON_PATH;
@@ -21,6 +22,7 @@ namespace MultiChoiceQuestion
 
         [Header("JSONs Manifest Definition")]
         public JSONsManifest JSONS_MANIFEST;
+
     }
 
 
