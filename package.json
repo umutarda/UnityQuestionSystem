@@ -7,11 +7,11 @@
     "question"
   ],
   "samples": [
-        {
-            "displayName": "Multi Choice Question Prefabs",
-            "description": "Contains sample prefabs",
-            "path": "Samples~/Prefabs"
-        }
-    ]
+	   {
+		    "displayName": "Multi Choice Question Prefabs",
+		    "description": "Contains sample prefabs",
+		    "path": "Samples~/Prefabs"
+	   }
+  ],
   "category": "QuestionSystem"
 }
