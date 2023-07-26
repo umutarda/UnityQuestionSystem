@@ -9,5 +9,6 @@
   "samples": [
 	   
   ],
-  "category": "QuestionSystem"
+  "category": "QuestionSystem",
+  "importer_showed": false
 }

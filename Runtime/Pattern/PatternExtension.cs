@@ -24,7 +24,7 @@ namespace MultiChoiceQuestion
             return Regex.IsMatch(input, pattern.PATTERN);
         }
 
-        public static string Match (this IPattern pattern, string input, out string symbol, out int position, int index=0) 
+        public static string Match (this IPattern pattern, string input, out string symbol, out int position, int index=0, bool giveSymbolIndex = false) 
         {
             position = -1;
             symbol = null;
@@ -37,7 +37,7 @@ namespace MultiChoiceQuestion
                 if (pattern.SYMBOL != null)
                     symbol = match.Groups[pattern.SYMBOL].Value;
 
-                position = match.Index;
+                position = giveSymbolIndex ? match.Groups[pattern.SYMBOL].Index : match.Index;
 
                 return match.Value;
             }
@@ -55,7 +55,7 @@ namespace MultiChoiceQuestion
                     if (pattern.SYMBOL != null)
                         symbol =   match.Groups[pattern.SYMBOL].Value;
 
-                    position = match.Index;
+                    position = giveSymbolIndex ? match.Groups[pattern.SYMBOL].Index : match.Index;
                     return match.Value;
                 }
 
@@ -72,7 +72,7 @@ namespace MultiChoiceQuestion
         public static string GetSymbolFromMatch (this IPattern pattern, string input, out int position, int index=0) 
         {
             string symbol;
-            Match (pattern, input, out symbol,out position,index);
+            Match (pattern, input, out symbol,out position,index,true);
 
             return symbol;
         }
