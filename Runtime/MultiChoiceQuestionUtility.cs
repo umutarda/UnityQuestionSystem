@@ -99,6 +99,8 @@ namespace MultiChoiceQuestion
 
         public static void LoadImageFromPath(System.Action<Texture2D> callback, string path) 
         {
+            if (path == null) return;
+                
             #if UNITY_WEBGL && !UNITY_EDITOR
 
                 DownloadHandlerTexture dhTexture = new DownloadHandlerTexture();
@@ -135,6 +137,8 @@ namespace MultiChoiceQuestion
 
         public static void LoadAudioFromPath(System.Action<AudioClip> callback, string path) 
         {
+            if (path == null) return;
+
             #if UNITY_WEBGL && !UNITY_EDITOR
 
                 DownloadHandlerAudioClip dhAudio = new DownloadHandlerAudioClip(path,AudioType.UNKNOWN);
@@ -171,6 +175,7 @@ namespace MultiChoiceQuestion
 
         public static void LoadJSONFileFromPath (System.Action<string> callback, string path) 
         {
+            if (path == null) return;
 
             #if UNITY_WEBGL && !UNITY_EDITOR
 
@@ -197,7 +202,6 @@ namespace MultiChoiceQuestion
 
         public static void LoadJSONFileFromName (System.Action<string> callback, string assetName) 
         {
-            
             LoadJSONFileFromPath(callback, GetAssetPathFromName(CONSTANTS.JSON_PATH.PATH,assetName));
         }
 
@@ -215,20 +219,16 @@ namespace MultiChoiceQuestion
 
         public static string GetImagePathFromJSON (string JSONString, out int positionInJSON, int index=0) 
         {
-            return GetAssetPathFromName 
-                (
-                    CONSTANTS.IMAGES_PATH.PATH,
-                    GetAssetNameFromJSON(JSONString,CONSTANTS.IMAGE_TAG,out positionInJSON,index
-                ));
+            string assetName = GetAssetNameFromJSON(JSONString,CONSTANTS.IMAGE_TAG,out positionInJSON,index);
+            return (assetName != null) ? GetAssetPathFromName (CONSTANTS.IMAGES_PATH.PATH, assetName) : null;
+
         }
 
         public static string GetAudioPathFromJSON (string JSONString, out int positionInJSON, int index=0) 
         {
-            return GetAssetPathFromName 
-                (
-                    CONSTANTS.AUDIO_PATH.PATH,
-                    GetAssetNameFromJSON(JSONString,CONSTANTS.AUDIO_TAG,out positionInJSON,index
-                ));
+            string assetName = GetAssetNameFromJSON(JSONString,CONSTANTS.AUDIO_TAG,out positionInJSON,index);
+            return (assetName != null) ? GetAssetPathFromName (CONSTANTS.AUDIO_PATH.PATH, assetName) : null;
+
         }
     
     }
